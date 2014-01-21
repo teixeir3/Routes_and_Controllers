@@ -1,7 +1,9 @@
 class AddUserName < ActiveRecord::Migration
   def change
     change_table :users do |t|
-      t.string :username, null: false, unique: true
+      t.string :username
     end
+
+    add_index :users, :username, unique: true
   end
 end
