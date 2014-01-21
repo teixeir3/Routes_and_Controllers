@@ -1,64 +1,64 @@
 require 'addressable/uri'
 require 'rest-client'
 
-def get_users
+def get_contacts
   url = Addressable::URI.new(
   :scheme => "http",
   :host => "localhost",
   :port => 3000,
-  :path => "/users.html"
+  :path => "/contacts.html"
 
   ).to_s
 
   puts RestClient.get(url)
 end
 
-def create_user
+def create_contact
   url = Addressable::URI.new(
       scheme: 'http',
       host: 'localhost',
       port: 3000,
-      path: '/users.json'
+      path: '/contacts.json'
     ).to_s
     puts url
     puts RestClient.post(
       url,
-      { :user => { :username => "Gizmo64"} }
+      { :contact => { :name => "My Name", email: "MyName@hotmail.com", user_id: 2 } }
     )
 end
 
-def show_user
+def show_contact
   url = Addressable::URI.new(
       scheme: 'http',
       host: 'localhost',
       port: 3000,
-      path: '/users/1.json'
+      path: '/contacts/1.json'
     ).to_s
 
     puts RestClient.get(url)
 end
 
-def update_user
+def update_contact
   url = Addressable::URI.new(
       scheme: 'http',
       host: 'localhost',
       port: 3000,
-      path: '/users/1.json'
+      path: '/contacts/1.json'
      # query_values: {:email => "dougsbetteremail@bromail.com"}
 
     ).to_s
     puts url
     puts RestClient.put(url,
-      {:user => {:username => "HiThere85"}}
+      {:contact => {:name => "My New Name"}}
       )
 end
 
-def delete_user
+def delete_contact
   url = Addressable::URI.new(
       scheme: 'http',
       host: 'localhost',
       port: 3000,
-      path: '/users/1.json'
+      path: '/contacts/1.json'
      # query_values: {:email => "dougsbetteremail@bromail.com"}
 
     ).to_s
@@ -67,4 +67,4 @@ def delete_user
 
 end
 
-get_users
+# update_contact

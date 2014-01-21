@@ -1,14 +1,18 @@
 RoutesAndControllers::Application.routes.draw do
 
-  # resources :users
+  resources :users, only: [:create, :destroy, :index, :show, :update]
 
-  get 'users' => 'users#index'
-  get 'users/new' => 'users#new'
-  post 'users' => 'users#create'
-  get 'users/:id' => 'users#show'
-  get 'users/:id/edit' => 'users#edit'
-  put 'users/:id' => 'users#update'
-  delete 'users/:id' => 'users#destroy'
+  resources :contacts, only: [:create, :destroy, :index, :show, :update]
+
+
+  #
+  # get 'users' => 'users#index'
+  # get 'users/new' => 'users#new'
+  # post 'users' => 'users#create'
+  # get 'users/:id' => 'users#show'
+  # get 'users/:id/edit' => 'users#edit'
+  # put 'users/:id' => 'users#update'
+  # delete 'users/:id' => 'users#destroy'
 
 
 
