@@ -10,7 +10,8 @@ def get_contacts
 
   ).to_s
 
-  puts RestClient.get(url)
+  puts RestClient.get(url,
+  {:user_id => 1 })
 end
 
 def create_contact
@@ -67,4 +68,4 @@ def delete_contact
 
 end
 
-# update_contact
+get_contacts

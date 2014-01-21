@@ -26,6 +26,12 @@ class ContactsController < ApplicationController
   end
 
   def index
-    render :json => Contact.all
+    if params.has_key?(:user_id)
+      contact = Contact.where(:user_id => params[:user_id])
+    else
+      contact = Contact.all
+    end
+
+    render :json => contact
   end
 end
